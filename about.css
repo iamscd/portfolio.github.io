@@ -1,0 +1,104 @@
+body {
+    background-color: #ffffff;
+}
+
+.navbar {
+    background-color: transparent;
+    margin: 20px;
+    padding: 0.5rem;
+    border-radius: 0;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar.navbar-expand-lg.fixed-top,
+.offcanvas-header,
+.offcanvas-body {
+    background-color: transparent;
+}
+
+.navbar .container-fluid {
+    justify-content: end;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus,
+.btn-success:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    color: #717788;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.mx-lg-2.active {
+    color: #48546B;
+
+}
+
+.nav-link.mx-lg-2 {
+    position: center;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #717788;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 100%;
+    visibility: visible;
+}
+
+.navbar-nav.d-none.d-lg-flex {
+    flex-direction: row; /* Align links in a row for large screens */
+}
+
+.contact-button {
+    background-color: #48546B;
+    color: #e5eee4;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+    font-family: "Montserrat", sans-serif;
+    /* Centering the text vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Set margin as per requirement */
+}
+
+
+.contact-button:hover {
+    background-color: #717788;
+}
+
+.logo {
+    height: 30px;
+    width: auto;
+    cursor: pointer;
+}
