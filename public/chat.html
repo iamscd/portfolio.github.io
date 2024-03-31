@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.io simple chat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+
+<body>
+
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img class="logo" src="images/logo.png" alt="logo">
+                </a>
+                <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav ms-auto justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item d-lg-none">
+                                <a class="nav-link mx-lg-2" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item d-lg-none">
+                                <a class="nav-link mx-lg-2" href="about.html">About</a>
+                            </li>
+                            <li class="nav-item d-lg-none">
+                                <a class="nav-link mx-lg-2 active" aria-current="page" href="chat.html">Chat</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="navbar-nav ms-auto justify-content-end d-none d-lg-flex pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2 active" aria-current="page" href="chat.html">Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="contact-button" href="index.html#contact-section">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- End of Navbar -->
+
+        <audio id="newMessageSound" src="/ping/ping.mp3" preload="auto"></audio>
+        <div class="container-fluid">
+            <div class="active-users">
+                <div class="inbox__people">
+                    <h4>Active users: <span id="userCount"></span></h4>
+                </div>
+            </div>
+            <div class="chat-column">
+                <audio id="newMessageSound" src="/ping/ping.mp3" preload="auto"></audio>
+                <div class="messages__history"></div>
+                <div class="typing__message"></div>
+                <form class="message_form">
+                    <div class="button-group">
+                        <button id="muteButton" type="button"> Mute </button>
+                        <button class="sidenav-button" onclick="toggleSideNav()" type="button">Active Users</button>
+                    </div>
+                    <input type="text" class="message_form__input" placeholder="Type a message" />
+                    <button class="message_form__button" type="submit">Enter</button>
+                </form>
+                <div class="typing__message"></div>
+            </div>
+        </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/client.js"></script>
+        <script>
+            // Function to play new message sound
+            const playNewMessageSound = () => {
+                const newMessageSound = document.getElementById("newMessageSound");
+                newMessageSound.play();
+            };
+
+            // Event listener for receiving chat messages
+            socket.on("chat message", function (data) {
+                // Play the new message sound
+                playNewMessageSound();
+
+                // Scroll to the bottom
+                scrollToBottom();
+            });
+
+            // Function to toggle mute state
+            const toggleMute = () => {
+                const newMessageSound = document.getElementById("newMessageSound");
+                const muteButton = document.getElementById("muteButton");
+
+                if (newMessageSound.muted) {
+                    newMessageSound.muted = false;
+                    muteButton.textContent = "Mute";
+                } else {
+                    newMessageSound.muted = true;
+                    muteButton.textContent = "Unmute";
+                }
+            };
+
+            // Event listener for mute button
+            document.getElementById("muteButton").addEventListener("click", toggleMute);
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const bgColorButton = document.getElementById("bgColorButton");
+                let colorIndex = 0;
+                const colors = ["#fdccf1", "#ffb8b1", "#ffdAC1", "#E2F0CB", "#55CBCD", "black", "white"];
+
+                bgColorButton.addEventListener("click", function () {
+                    colorIndex = (colorIndex + 1) % colors.length;
+                    document.body.style.backgroundColor = colors[colorIndex];
+                    updateTextColor(colors[colorIndex]);
+                });
+
+                function updateTextColor(color) {
+                    // Assuming you want to change the text color of the entire body
+                    // Update this if you need to target a specific element
+                    if (color === "black") {
+                        document.body.classList.add("white-text");
+                    } else {
+                        document.body.classList.remove("white-text");
+                    }
+                }
+            });
+            function toggleSideNav() {
+                var sidenav = document.querySelector('.sidenav');
+                var inboxPeople = document.querySelector('.inbox__people');
+                var messageForm = document.querySelector('.message_form');
+                var messageFormElements = messageForm.querySelectorAll('input, button:not(.sidenav-button)'); // Select all inputs and buttons except the sidenav button
+
+                sidenav.classList.toggle('open');
+
+                if (sidenav.classList.contains('open')) {
+                    sidenav.style.display = 'block';
+                    inboxPeople.style.display = 'block'; // Show the Active users text
+                    // Hide specific message form elements
+                    messageFormElements.forEach(element => element.style.display = 'none');
+                } else {
+                    sidenav.style.display = 'none';
+                    inboxPeople.style.display = 'none'; // Hide the Active users text
+                    // Show specific message form elements
+                    messageFormElements.forEach(element => element.style.display = 'block');
+                }
+            }
+
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,331 @@
+@import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
+
+.navbar {
+    background-color: transparent;
+    margin: 20px;
+    padding: 0.5rem;
+    border-radius: 0;
+    z-index: 1030;
+    position: fixed;
+    top: 0;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar.navbar-expand-lg.fixed-top,
+.offcanvas-header,
+.offcanvas-body {
+    background-color: transparent;
+}
+
+.navbar .container-fluid {
+    justify-content: end;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus,
+.btn-success:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    color: #717788;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.mx-lg-2.active {
+    color: #48546B;
+
+}
+
+.nav-link.mx-lg-2 {
+    position: center;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #717788;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 100%;
+    visibility: visible;
+}
+
+.navbar-nav.d-none.d-lg-flex {
+    flex-direction: row;
+    /* Align links in a row for large screens */
+}
+
+.contact-button {
+    background-color: #48546B;
+    color: #e5eee4;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+    font-family: "Montserrat", sans-serif;
+    /* Centering the text vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Set margin as per requirement */
+}
+
+
+.contact-button:hover {
+    background-color: #717788;
+}
+
+.logo {
+    height: 30px;
+    width: auto;
+    cursor: pointer;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin-top: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #bfc9dd;
+    /* Updated background color */
+}
+
+.message_form__input {
+    text-align: right;
+    width: 80%;
+}
+
+.incoming__message,
+.sent__message {
+    max-width: -50%;
+    /* Limit the width to 50% of the parent container */
+    word-wrap: break-word;
+    /* Ensure long words can break and wrap to the next line */
+    margin-bottom: 10px;
+    /* Optional: Adds some space between messages */
+}
+
+.incoming__message {
+    text-align: left;
+}
+
+.sent__message {
+    text-align: right;
+    padding-right: 50px;
+}
+
+.button-group {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.white-text {
+    color: white;
+}
+
+.custom-image-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.outgoing__message {
+    margin-top: 10px;
+    /* Add margin to separate messages */
+}
+
+.outgoing__message .sent__message {
+    background-color: #717788;
+    /* Semi-transparent blue background */
+    border: 2px solid #626a81;
+    /* Blue border with 50% opacity */
+    border-radius: 25px;
+    /* Rounded corners */
+    padding: 10px;
+    /* Padding for the message */
+}
+
+.outgoing__message .sent__message p {
+    margin: 0;
+    color: white;
+    /* Remove default paragraph margin */
+}
+
+.message__container {
+    margin-top: 10px;
+    /* Add margin to separate messages */
+}
+
+.received__message,
+.sent__message {
+    background-color: rgba(128, 128, 128, 0.1);
+    /* Semi-transparent grey background */
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    /* Grey border with 20% opacity */
+    border-radius: 25px;
+    /* Rounded corners */
+    padding: 10px;
+    /* Padding for the message */
+}
+
+.received__message p,
+.sent__message p {
+    margin: 0;
+    /* Remove default paragraph margin */
+}
+
+progress {
+    width: 100%;
+    height: 20px;
+}
+
+#progressContainer {
+    margin-bottom: 10px;
+}
+
+.sidenav-button {
+    display: none;
+}
+
+.messages__history {
+    max-height: calc(90vh - 100px);
+    /* Adjust 100px to the combined height of other elements */
+    overflow-y: auto;
+
+    @media screen and (max-width: 600px) {
+        /.sidenav {
+            width: 0;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            z-index: 1000;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .sidenav.open {
+            width: 100%;
+        }
+
+        .sidenav-button {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .sidenav,
+        .inbox__people {
+            display: none;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        /* Stack input and button vertically */
+        .message_form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        /* Full width button */
+        .message_form__button {
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        /* Adjustments for user count dropdown */
+        .inbox__people {
+            display: none;
+            /* Keep it hidden initially */
+            width: 100%;
+            /* Use full width of the side nav */
+            background-color: #f5f5f5;
+            /* Or any background color you prefer */
+            padding: 10px;
+            /* Add some padding for better spacing */
+            box-sizing: border-box;
+            /* Ensure padding doesn't affect total width */
+            background-color: transparent;
+        }
+
+        .incoming__message {
+            text-align: left;
+            padding-left: 0;
+        }
+
+        /* When sideNav is open, display inbox__people */
+        .sidenav.open .inbox__people {
+            display: block;
+        }
+
+        .sent__message {
+            text-align: right;
+            /* Align messages to the left */
+            padding-left: 0;
+            /* Adjust padding for left alignment */
+            /* Other styles... */
+        }
+
+        .inbox__people select {
+            appearance: none;
+            border: none;
+            background: transparent;
+            font-size: inherit;
+            cursor: pointer;
+        }
+
+        .inbox__people h4 {
+            display: block;
+        }
+
+        .content {
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .typing__message {
+            display: none;
+            /* Initially hide the typing message */
+            /* Additional styling as per your design */
+        }
+
+        .messages__history {
+            max-height: calc(90vh - 200px);
+            /* Adjust 100px to the combined height of other elements */
+            overflow-y: auto;
+        }
+    }
+}
