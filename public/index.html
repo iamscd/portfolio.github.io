@@ -115,24 +115,58 @@
     </div>
     <!-- End of Tech -->
 
-
+    <!-- Projects -->
     <div class="projects-container">
         <div class="project-card" onclick="openAlbum('album1')">
-            <img src="path_to_project_image" alt="Project Thumbnail" class="project-thumbnail">
+            <img src="citykharkiv.png" alt="Project Thumbnail" class="project-thumbnail">
             <div class="project-info">
-                <h3>My UI design book</h3>
-                <p>Book</p>
+                <h3>Kharkiv City</h3>
+                <p>HTML5, CSS3, JS</p>
             </div>
         </div>
-        <!-- Repeat the above div for each project, with appropriate onclick values and content -->
+        <div class="project-card" onclick="openAlbum('album2')">
+            <img src="owl.png" alt="Project Thumbnail" class="project-thumbnail">
+            <div class="project-info">
+                <h3>3D Models</h3>
+                <p>Blender, Unreal Engine 5, Z-Brush</p>
+            </div>
+        </div>
+        <div class="project-card" onclick="openAlbum('album3')">
+            <img src="BSU1.png" alt="Project Thumbnail" class="project-thumbnail">
+            <div class="project-info">
+                <h3>BSU</h3>
+                <p>TypeScript, Next.js, Mongodb</p>
+            </div>
+        </div>
     </div>
 
-    <!-- Albums (hidden by default, shown when a project is clicked) -->
     <div id="album1" class="project-album">
-        <img src="path_to_album_image1" alt="Album Image 1">
-        <!-- Add more images as needed -->
+        <img src="citykharkiv.png" alt="Album Image 1">
+        <img src="citykharkiv4.png" alt="Album Image 2">
+        <img src="citykharkiv2.png" alt="Album Image 3">
+        <img src="citykharkiv3.png" alt="Album Image 4">
+    </div>
+    <div id="album2" class="project-album">
+        <img src="3d1.png" alt="Album Image 1">
+        <img src="3d5.gif" alt="Album Image 2">
+        <img src="owl.png" alt="Album Image 3">
+        <img src="3d3.png" alt="Album Image 4">
+        <img src="3d4.jpeg" alt="Album Image 5">
+        <img src="3d6.png" alt="Album Image 6">
+        <img src="3d2.png" alt="Album Image 7">
+    </div>
+    <div id="album3" class="project-album">
+        <img src="BSU1.png" alt="Album Image 1">
+        <img src="BSU2.png" alt="Album Image 2">
+        <img src="BSU3.png" alt="Album Image 3">
     </div>
 
+    <!-- End of projects -->
+
+    <!-- About Section -->
+
+    
+    <!-- End of About --> 
 
 
     <!-- Contact Section -->
@@ -166,17 +200,48 @@
     </div>
     <!-- End of Contact Section -->
 
+
     <script>
         function openAlbum(albumId) {
-            // Close all open albums
+            var album = document.getElementById(albumId);
+
+            if (album.style.display === 'flex') {
+                album.style.display = 'none';
+            } else {
+                closeAllAlbums();
+
+                album.style.display = 'flex';
+            }
+        }
+
+        function closeAllAlbums() {
             var albums = document.getElementsByClassName('project-album');
             for (var i = 0; i < albums.length; i++) {
                 albums[i].style.display = 'none';
             }
-
-            // Open the selected album
-            document.getElementById(albumId).style.display = 'block';
         }
+
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('.project-card') && !event.target.closest('.project-album')) {
+                closeAllAlbums();
+            }
+        }, false);
+
+    </script>
+    <script>
+        let lastScrollTop = 0; 
+
+        window.addEventListener("scroll", function () {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > lastScrollTop) {
+                // Scrolling down
+                document.querySelector(".navbar").style.top = "-100px"; 
+            } else {
+                // Scrolling up
+                document.querySelector(".navbar").style.top = "0";
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; 
+        }, false);
     </script>
     <script src="index.js" async defer></script>
     <script src="contact.js" async defer></script>

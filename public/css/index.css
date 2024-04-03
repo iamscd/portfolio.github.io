@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 body {
-    background-color: white;
-    background-image: radial-gradient(circle, #bbb 1px, transparent 1px);
-    background-size: 25px 25px;
-    font-family: "Quicksand", sans-serif;
+  background-color: white;
+  background-image: radial-gradient(circle, #bbb 1px, transparent 1px);
+  background-size: 25px 25px;
+  font-family: "Quicksand", sans-serif;
 }
 
 
@@ -14,6 +14,10 @@ body {
     margin: 20px;
     padding: 0.5rem;
     border-radius: 0;
+    transition: top 0.6s; 
+    position: fixed; 
+    width: 100%; 
+    top: 0;
 }
 
 .navbar-nav {
@@ -80,8 +84,7 @@ body {
 }
 
 .navbar-nav.d-none.d-lg-flex {
-    flex-direction: row;
-    /* Align links in a row for large screens */
+    flex-direction: row; 
 }
 
 .contact-button {
@@ -92,11 +95,9 @@ body {
     border-radius: 50px;
     text-decoration: none;
     transition: 0.3s background-color;
-    /* Centering the text vertically */
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Set margin as per requirement */
 }
 
 
@@ -183,185 +184,137 @@ body {
 }
 
 .intro-main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 150px;
-    margin-right: 150px;
-    /* adjust padding as needed */
-    margin-top: 150px;
-    margin-bottom: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 150px;
+  margin-right: 150px; 
+  margin-top: 150px;
+  margin-bottom: 90px;
 }
 
 .intro-text h1 {
-    font-size: 3rem;
-    /* large font size for the main title */
-    margin-bottom: 0.5em;
-    /* space below the title */
+  font-size: 3rem; 
+  margin-bottom: 0.5em; 
 }
 
 .intro-text p {
-    font-size: 1.25rem;
-    /* readable paragraph size */
-    color: #333;
-    /* dark grey text color */
-    margin-bottom: 0.5em;
-    /* space below the paragraph */
+  font-size: 1.25rem; 
+  color: #333; 
+  margin-bottom: 0.5em; 
 }
 
 .intro-text a {
-    margin-right: 10px;
-    /* space between icons */
+  margin-right: 10px; 
 }
 
 .intro-img img {
-    border-radius: 50%;
-    /* make the image round */
-    width: 355px;
-    /* fixed width, can also be in percentage */
-    height: 344px;
-    /* fixed height, can also be in percentage */
-    object-fit: cover;
-    /* ensure the image covers the area without stretching */
+  border-radius: 50%; 
+  width: 355px; 
+  height: 344px; 
+  object-fit: cover; 
 }
 
-/* Assuming you want the icons black as in the provided HTML */
 .tabler-icon {
-    stroke: #000;
-    /* icon color */
-    margin-top: 20px;
+  stroke: #000; /* icon color */
+  margin-top: 20px;
 }
 
 @media (max-width: 768px) {
+  .intro-main {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    /* Adjust layout for smaller screens */
-    .intro-main {
-        flex-direction: column;
-        text-align: center;
-    }
+  .intro-img {
+    margin-bottom: 20px; 
+  }
 
-    .intro-img {
-        margin-bottom: 20px;
-        /* space below the image on smaller screens */
-    }
-
-    .intro-text span {
-        display: block;
-        /* put the icons on a new line */
-        margin-top: 20px;
-        /* space above the icons */
-    }
+  .intro-text span {
+    display: block; 
+    margin-top: 20px; 
+  }
 }
 
 .tech-stack {
-    text-align: center;
-    /* Align the content to the center */
-    padding: 20px 0;
-    /* Add some padding at the top and bottom */
+    text-align: center; 
+    padding: 70px 0; 
 }
 
 .tech-stack h2 {
-    color: #333;
-    /* Color for the 'Tech Stack' heading */
-    margin-bottom: 30px;
-    /* Space below the heading */
+    color: #333; 
+    margin-bottom: 30px; 
 }
 
 .tech-stack ul {
-    list-style-type: none;
-    /* No bullets */
-    padding: 0;
-    /* No padding */
-    margin: 0 auto;
-    /* Center the list */
-    display: flex;
-    /* Use flexbox to create a horizontal layout */
-    align-items: center;
-    /* Center items vertically */
-    justify-content: center;
-    /* Center items horizontally */
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0 auto; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
     flex-wrap: wrap;
-    /* Wrap items to the next line if needed */
 }
 
 .tech-stack li {
-    margin: 0 15px;
-    /* Space between icons, adjust as needed */
+    margin: 0 15px; 
 }
 
 .tech-stack i {
     font-size: 40px;
-    /* Size of the icons */
-    color: inherit;
-    /* Inherit the color from the parent element */
-    transition: color 0.3s;
-    /* Smooth transition for hover effect */
+    color: inherit; 
+    transition: color 0.3s; 
 }
-
-/* Style for each tech icon color */
-.fa-html5 {
-    color: #e34f26;
-}
-
-.fa-css3-alt {
-    color: #1572b6;
-}
-
-.fa-js {
-    color: #f7df1e;
-}
-
-.fa-react {
-    color: #61dbfb;
-}
-
-/* Add classes for other technologies with their respective colors */
-
 
 .tech-stack img {
-    width: 45px;
-    /* Set the width you want for your icons */
-    height: auto;
-    /* Keep the aspect ratio */
+    width: 45px; 
+    height: auto; 
     margin: 0 0;
-    /* Space between icons, adjust as needed */
-    transition: transform 0.3s;
-    /* Smooth transition for hover effect */
+    transition: transform 0.3s; 
 }
 
-
 .projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  margin-top: 50px;
 }
 
 .project-card {
-    width: 300px;
-    margin: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    cursor: pointer;
+  width: 300px;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border-radius: 8px;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
-
 .project-thumbnail {
-    width: 100%;
-    display: block;
+  width: 100%;
+  height: auto;
+  display: block; 
 }
 
 .project-info {
-    padding: 15px;
-    text-align: center;
+  padding: 15px;
+  text-align: center;
 }
 
 .project-album {
-    display: none;
-    /* Hidden by default */
+  display: none; 
+  flex-direction: row; 
+  overflow-x: auto; 
+  gap: 20px; 
+  padding: 20px;
 }
 
-/* Additional styling for album images and the open state can be added here */
+.project-album img {
+  max-height: 300px;
+  max-width: 100%;
+  height: auto; 
+  flex: 0 0 auto; 
+}
