@@ -6,6 +6,7 @@ body {
   background-image: radial-gradient(circle, #bbb 1px, transparent 1px);
   background-size: 25px 25px;
   font-family: "Quicksand", sans-serif;
+  overflow-x: hidden;
 }
 
 
@@ -22,9 +23,15 @@ body {
 
 .navbar-nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; 
     align-items: center;
     width: 100%;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center; /* Center align the logo */
+    margin-right: 0; /* Reset default margin */
 }
 
 .navbar.navbar-expand-lg.fixed-top,
@@ -37,9 +44,20 @@ body {
     justify-content: end;
 }
 
+.offcanvas-header .btn-close {
+    margin-top: 1rem;
+    margin-right: 0.5rem; /* Adjust as needed to match the toggler */
+}
+
+/* Ensure offcanvas menu items have the same padding as top-level menu items */
+.offcanvas-body .nav-link {
+    padding: 0.5rem 1rem; /* Match this with the padding of .nav-link */
+}
+
 .navbar-toggler {
     border: none;
     font-size: 1.25rem;
+    margin-right: 1rem;
 }
 
 .navbar-toggler:focus,
@@ -52,6 +70,7 @@ body {
     color: #717788;
     font-weight: 500;
     position: relative;
+    padding: 0.5rem 1rem;
 }
 
 .nav-link:hover,
@@ -109,21 +128,21 @@ body {
     height: 30px;
     width: auto;
     cursor: pointer;
+    margin-bottom: 0;
 }
 
 
 #contact-section {
     background-color: #48546B;
     color: #e4e7ee;
-    padding: 50px 40px;
-    margin-top: 800px;
+    padding: 40px 0;
+    margin-top: 80px;
     justify-content: center;
     align-items: center;
 }
 
 .contact-form {
     background: transparent;
-    padding: 40px;
     border-radius: 8px;
     text-align: center;
 }
@@ -191,6 +210,7 @@ body {
   margin-right: 150px; 
   margin-top: 150px;
   margin-bottom: 90px;
+  max-width: 1400px;
 }
 
 .intro-text h1 {
@@ -317,4 +337,58 @@ body {
   max-width: 100%;
   height: auto; 
   flex: 0 0 auto; 
+}
+
+#about-section {
+    padding: 60px 0;
+    margin-top: 60px;
+    background-color: #71778865; /* or any color you prefer */
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Make sure items are vertically centered */
+    justify-content: space-between;
+}
+
+.about-content {
+    flex-basis: 50%; /* Adjust size as necessary */
+    padding-left: 40px; /* Add padding on the right */
+}
+
+.about-images {
+    flex-basis: 50%; /* Adjust size as necessary */
+    display: flex; /* Use flex to control image positioning */
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+}
+
+.square-img {
+    width: auto; /* Maintain original image width */
+    max-height: 350px; /* Maximum height, can adjust as needed */
+    aspect-ratio: 1 / 1; /* Keeps the image square */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds shadow for depth */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column-reverse; /* Stack image on top of text */
+    }
+    .about-content,
+    .about-images {
+        flex-basis: 100%;
+        padding: 0; /* Reset padding for smaller screens */
+        text-align: center; /* Center text for smaller screens */
+    }
+    .square-img {
+        max-height: 250px; /* Adjust image size for smaller screens */
+        margin-bottom: 30px;
+    }
 }
