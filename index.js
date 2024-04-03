@@ -50,4 +50,4 @@ io.on("connection", function (socket) {
         socket.broadcast.emit("stop typing", { userName: data.userName });
     });
 
-}); 
+});

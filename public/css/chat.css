@@ -1,10 +1,14 @@
 @import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 .navbar {
     background-color: transparent;
     margin: 20px;
     padding: 0.5rem;
     border-radius: 0;
+    z-index: 1030;
+    position: fixed;
+    top: 0;
 }
 
 .navbar-nav {
@@ -99,6 +103,32 @@
     height: 30px;
     width: auto;
     cursor: pointer;
+}
+
+body {
+    padding-top: 56px; /* This should match the height of your navbar. */
+}
+
+.container-fluid {
+    padding-top: 56px; /* Same value as padding-top for the body, or adjust if your navbar is a different height */
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+.active-users {
+    background-color: #FFFF00; /* Yellow background */
+    flex: 0 0 30%;
+    padding: 10px;
+    height: calc(100vh - 56px); /* Subtract the navbar height */
+    overflow-y: auto;
+}
+
+.chat-column {
+    flex: 0 0 70%;
+    padding: 10px;
+    height: calc(100vh - 56px); /* Subtract the navbar height */
+    overflow-y: auto;
 }
 
 .message_form__input {
@@ -211,113 +241,3 @@ progress {
     /* Adjust 100px to the combined height of other elements */
     overflow-y: auto;
 
-    @media screen and (max-width: 600px) {
-        /.sidenav {
-            width: 0;
-            overflow: hidden;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            z-index: 1000;
-            background-color: #f5f5f5;
-            padding: 20px;
-        }
-
-        .sidenav.open {
-            width: 100%;
-        }
-
-        .sidenav-button {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .sidenav,
-        .inbox__people {
-            display: none;
-        }
-
-        .content {
-            margin-top: 20px;
-        }
-
-        /* Stack input and button vertically */
-        .message_form {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-        }
-
-        /* Full width button */
-        .message_form__button {
-            width: 100%;
-            margin-top: 5px;
-        }
-
-        /* Adjustments for user count dropdown */
-        .inbox__people {
-            display: none;
-            /* Keep it hidden initially */
-            width: 100%;
-            /* Use full width of the side nav */
-            background-color: #f5f5f5;
-            /* Or any background color you prefer */
-            padding: 10px;
-            /* Add some padding for better spacing */
-            box-sizing: border-box;
-            /* Ensure padding doesn't affect total width */
-            background-color: transparent;
-        }
-
-        .incoming__message {
-            text-align: left;
-            padding-left: 0;
-        }
-
-        /* When sideNav is open, display inbox__people */
-        .sidenav.open .inbox__people {
-            display: block;
-        }
-
-        .sent__message {
-            text-align: right;
-            /* Align messages to the left */
-            padding-left: 0;
-            /* Adjust padding for left alignment */
-            /* Other styles... */
-        }
-
-        .inbox__people select {
-            appearance: none;
-            border: none;
-            background: transparent;
-            font-size: inherit;
-            cursor: pointer;
-        }
-
-        .inbox__people h4 {
-            display: block;
-        }
-
-        .content {
-            margin-left: 0;
-            padding-left: 0;
-        }
-
-        .typing__message {
-            display: none;
-            /* Initially hide the typing message */
-            /* Additional styling as per your design */
-        }
-
-        .messages__history {
-            max-height: calc(90vh - 200px);
-            /* Adjust 100px to the combined height of other elements */
-            overflow-y: auto;
-        }
-
-
-
-    }
-}

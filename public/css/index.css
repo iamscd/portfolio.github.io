@@ -1,8 +1,13 @@
 @import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 body {
-    background-color: #ffffff;
+    background-color: white;
+    background-image: radial-gradient(circle, #bbb 1px, transparent 1px);
+    background-size: 25px 25px;
+    font-family: "Quicksand", sans-serif;
 }
+
 
 .navbar {
     background-color: transparent;
@@ -75,7 +80,8 @@ body {
 }
 
 .navbar-nav.d-none.d-lg-flex {
-    flex-direction: row; /* Align links in a row for large screens */
+    flex-direction: row;
+    /* Align links in a row for large screens */
 }
 
 .contact-button {
@@ -86,7 +92,6 @@ body {
     border-radius: 50px;
     text-decoration: none;
     transition: 0.3s background-color;
-    font-family: "Montserrat", sans-serif;
     /* Centering the text vertically */
     display: flex;
     align-items: center;
@@ -176,3 +181,187 @@ body {
     color: #e4e7ee;
     margin-top: 5px;
 }
+
+.intro-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 150px;
+    margin-right: 150px;
+    /* adjust padding as needed */
+    margin-top: 150px;
+    margin-bottom: 90px;
+}
+
+.intro-text h1 {
+    font-size: 3rem;
+    /* large font size for the main title */
+    margin-bottom: 0.5em;
+    /* space below the title */
+}
+
+.intro-text p {
+    font-size: 1.25rem;
+    /* readable paragraph size */
+    color: #333;
+    /* dark grey text color */
+    margin-bottom: 0.5em;
+    /* space below the paragraph */
+}
+
+.intro-text a {
+    margin-right: 10px;
+    /* space between icons */
+}
+
+.intro-img img {
+    border-radius: 50%;
+    /* make the image round */
+    width: 355px;
+    /* fixed width, can also be in percentage */
+    height: 344px;
+    /* fixed height, can also be in percentage */
+    object-fit: cover;
+    /* ensure the image covers the area without stretching */
+}
+
+/* Assuming you want the icons black as in the provided HTML */
+.tabler-icon {
+    stroke: #000;
+    /* icon color */
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+
+    /* Adjust layout for smaller screens */
+    .intro-main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro-img {
+        margin-bottom: 20px;
+        /* space below the image on smaller screens */
+    }
+
+    .intro-text span {
+        display: block;
+        /* put the icons on a new line */
+        margin-top: 20px;
+        /* space above the icons */
+    }
+}
+
+.tech-stack {
+    text-align: center;
+    /* Align the content to the center */
+    padding: 20px 0;
+    /* Add some padding at the top and bottom */
+}
+
+.tech-stack h2 {
+    color: #333;
+    /* Color for the 'Tech Stack' heading */
+    margin-bottom: 30px;
+    /* Space below the heading */
+}
+
+.tech-stack ul {
+    list-style-type: none;
+    /* No bullets */
+    padding: 0;
+    /* No padding */
+    margin: 0 auto;
+    /* Center the list */
+    display: flex;
+    /* Use flexbox to create a horizontal layout */
+    align-items: center;
+    /* Center items vertically */
+    justify-content: center;
+    /* Center items horizontally */
+    flex-wrap: wrap;
+    /* Wrap items to the next line if needed */
+}
+
+.tech-stack li {
+    margin: 0 15px;
+    /* Space between icons, adjust as needed */
+}
+
+.tech-stack i {
+    font-size: 40px;
+    /* Size of the icons */
+    color: inherit;
+    /* Inherit the color from the parent element */
+    transition: color 0.3s;
+    /* Smooth transition for hover effect */
+}
+
+/* Style for each tech icon color */
+.fa-html5 {
+    color: #e34f26;
+}
+
+.fa-css3-alt {
+    color: #1572b6;
+}
+
+.fa-js {
+    color: #f7df1e;
+}
+
+.fa-react {
+    color: #61dbfb;
+}
+
+/* Add classes for other technologies with their respective colors */
+
+
+.tech-stack img {
+    width: 45px;
+    /* Set the width you want for your icons */
+    height: auto;
+    /* Keep the aspect ratio */
+    margin: 0 0;
+    /* Space between icons, adjust as needed */
+    transition: transform 0.3s;
+    /* Smooth transition for hover effect */
+}
+
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.project-card {
+    width: 300px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-thumbnail {
+    width: 100%;
+    display: block;
+}
+
+.project-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.project-album {
+    display: none;
+    /* Hidden by default */
+}
+
+/* Additional styling for album images and the open state can be added here */

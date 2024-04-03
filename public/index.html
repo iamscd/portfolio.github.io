@@ -8,6 +8,7 @@
     <title>Home page</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/d43c7d225b.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
@@ -19,7 +20,9 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
-                <img class="logo" src="images/logo.png" alt="logo">
+                <h4 class="logo">
+                    SP
+                </h4>
             </a>
             <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -62,6 +65,75 @@
     </nav>
     <!-- End of Navbar -->
 
+    <!-- Introdaction -->
+    <div class="intro-main">
+        <div class="intro-text">
+            <h1>Front-End Developer</h1>
+            <p>Hi, I'm Sofiia Prokhorets. A passionate Front-end Developer based in Aberdeen, UK. 📍</p>
+            <span>
+                <a aria-label="linkedin" rel="noreferrer" target="_blank"
+                    href="https://www.linkedin.com/in/sofiia-prokhorets-0a44772b4"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="tabler-icon tabler-icon-brand-linkedin">
+                        <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z">
+                        </path>
+                        <path d="M8 11l0 5"></path>
+                        <path d="M8 8l0 .01"></path>
+                        <path d="M12 16l0 -5"></path>
+                        <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
+                    </svg></a>
+                <a aria-label="github" rel="noreferrer" target="_blank" href="https://github.com/iamscd"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="tabler-icon tabler-icon-brand-github">
+                        <path
+                            d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                        </path>
+                    </svg>
+                </a>
+            </span>
+        </div>
+        <div class="intro-img">
+            <img src="introimg2.png" alt="introimg" width="355px" height="344px">
+        </div>
+    </div>
+    <!-- End of Introdaction -->
+
+    <!-- Tech -->
+    <div class="tech-stack">
+        <h2>Tech Stack</h2>
+        <ul>
+            <li><i class="fa-brands fa-html5"></i></li>
+            <li><i class="fa-brands fa-css3-alt"></i></li>
+            <li><i class="fa-brands fa-js"></i></li>
+            <li><i class="fa-brands fa-react"></i></li>
+            <li><i class="fa-brands fa-python"></i></li>
+            <li><img src="blenderimg.png" alt="Blender"></li>
+            <li><img src="ueimg.png" alt="Unreal 5"></li>
+        </ul>
+    </div>
+    <!-- End of Tech -->
+
+
+    <div class="projects-container">
+        <div class="project-card" onclick="openAlbum('album1')">
+            <img src="path_to_project_image" alt="Project Thumbnail" class="project-thumbnail">
+            <div class="project-info">
+                <h3>My UI design book</h3>
+                <p>Book</p>
+            </div>
+        </div>
+        <!-- Repeat the above div for each project, with appropriate onclick values and content -->
+    </div>
+
+    <!-- Albums (hidden by default, shown when a project is clicked) -->
+    <div id="album1" class="project-album">
+        <img src="path_to_album_image1" alt="Album Image 1">
+        <!-- Add more images as needed -->
+    </div>
+
+
 
     <!-- Contact Section -->
     <div id="contact-section">
@@ -94,6 +166,18 @@
     </div>
     <!-- End of Contact Section -->
 
+    <script>
+        function openAlbum(albumId) {
+            // Close all open albums
+            var albums = document.getElementsByClassName('project-album');
+            for (var i = 0; i < albums.length; i++) {
+                albums[i].style.display = 'none';
+            }
+
+            // Open the selected album
+            document.getElementById(albumId).style.display = 'block';
+        }
+    </script>
     <script src="index.js" async defer></script>
     <script src="contact.js" async defer></script>
     <script src="js/client.js" async defer></script>
