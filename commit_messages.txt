@@ -1,0 +1,23 @@
+Wed Apr 3 22:59:37 2024 - About Section
+About section is done.
+
+Wed Apr 3 20:36:25 2024 - Projects added
+The project section has been added, as cards that show the album with photos of a project. Navbar now disappears when the user scrolls down.
+
+Wed Apr 3 14:58:05 2024 - Chat, Home page
+The chat page is styled, required functions were added. Home page has introduction, tech stack and contact section.
+
+Sun Mar 31 18:37:06 2024 - Chat application modified
+User can now see who joined, types, and left the chat. Was added basic styling to the chat.html.
+
+Wed Mar 27 00:12:44 2024 - Chat uploaded
+Has been uploaded given sample code ca4 for a chat. No modification has been made.
+
+Tue Mar 26 21:12:31 2024 - Navbar, Contact sections
+The navbar was added to both of the pages (home, and about), it's responsive, was used Bootstrap.
+Was created a contact section, contact button was removed from the offcanvas menu due to visual noise.
+
+Sun Mar 24 05:08:40 2024 - Project started
+The project "Personal and Professional Portfolio" has been started. The GitHub repository was created.
+
+Sun Mar 24 04:57:58 2024 - Initial commit

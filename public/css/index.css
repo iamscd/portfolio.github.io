@@ -342,7 +342,7 @@ body {
 #about-section {
     padding: 60px 0;
     margin-top: 60px;
-    background-color: #71778865; /* or any color you prefer */
+    background-color: #71778865;
 }
 
 .container {
@@ -351,44 +351,43 @@ body {
     padding: 20px 15px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center; /* Make sure items are vertically centered */
+    align-items: center;
     justify-content: space-between;
 }
 
 .about-content {
-    flex-basis: 50%; /* Adjust size as necessary */
-    padding-left: 40px; /* Add padding on the right */
+    flex-basis: 50%;
+    padding-left: 40px; 
 }
 
 .about-images {
-    flex-basis: 50%; /* Adjust size as necessary */
-    display: flex; /* Use flex to control image positioning */
-    justify-content: center; /* Center image horizontally */
-    align-items: center; /* Center image vertically */
+    flex-basis: 50%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 .square-img {
-    width: auto; /* Maintain original image width */
-    max-height: 350px; /* Maximum height, can adjust as needed */
-    aspect-ratio: 1 / 1; /* Keeps the image square */
-    object-fit: cover; /* Ensures the image covers the area without stretching */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds shadow for depth */
+    width: auto; 
+    max-height: 350px; 
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
 }
 
-/* Adjustments for smaller screens */
 @media (max-width: 768px) {
     .container {
-        flex-direction: column-reverse; /* Stack image on top of text */
+        flex-direction: column-reverse; 
     }
     .about-content,
     .about-images {
         flex-basis: 100%;
-        padding: 0; /* Reset padding for smaller screens */
-        text-align: center; /* Center text for smaller screens */
+        padding: 0; 
+        text-align: center; 
     }
     .square-img {
-        max-height: 250px; /* Adjust image size for smaller screens */
+        max-height: 250px; 
         margin-bottom: 30px;
     }
 }

@@ -246,10 +246,8 @@
         window.addEventListener("scroll", function () {
             let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
             if (currentScroll > lastScrollTop) {
-                // Scrolling down
                 document.querySelector(".navbar").style.top = "-100px"; 
             } else {
-                // Scrolling up
                 document.querySelector(".navbar").style.top = "0";
             }
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; 
