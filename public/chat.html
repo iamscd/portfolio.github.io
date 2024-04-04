@@ -83,17 +83,22 @@
     <script src="socket.io/socket.io.js"></script>
     <script src="js/client.js"></script>
     <script>
+        // Function to play new message sound
         const playNewMessageSound = () => {
             const newMessageSound = document.getElementById("newMessageSound");
             newMessageSound.play();
         };
 
+        // Event listener for receiving chat messages
         socket.on("chat message", function (data) {
+            // Play the new message sound
             playNewMessageSound();
 
+            // Scroll to the bottom
             scrollToBottom();
         });
 
+        // Function to toggle mute state
         const toggleMute = () => {
             const newMessageSound = document.getElementById("newMessageSound");
             const muteButton = document.getElementById("muteButton");
@@ -107,6 +112,7 @@
             }
         };
 
+        // Event listener for mute button
         document.getElementById("muteButton").addEventListener("click", toggleMute);
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -121,6 +127,8 @@
             });
 
             function updateTextColor(color) {
+                // Assuming you want to change the text color of the entire body
+                // Update this if you need to target a specific element
                 if (color === "black") {
                     document.body.classList.add("white-text");
                 } else {
@@ -138,11 +146,13 @@
 
             if (sidenav.classList.contains('open')) {
                 sidenav.style.display = 'block';
-                inboxPeople.style.display = 'block'; 
+                inboxPeople.style.display = 'block'; // Show the Active users text
+                // Hide specific message form elements
                 messageFormElements.forEach(element => element.style.display = 'none');
             } else {
                 sidenav.style.display = 'none';
-                inboxPeople.style.display = 'none'; 
+                inboxPeople.style.display = 'none'; // Hide the Active users text
+                // Show specific message form elements
                 messageFormElements.forEach(element => element.style.display = 'block');
             }
         }
